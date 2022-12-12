@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:drawable="clr-namespace:MauiBenchDemoApp"
+             x:Class="MauiBenchDemoApp.MainPage">
+    <ContentPage.Resources>
+        <drawable:PlanetsDrawable x:Key="drawable" />
+    </ContentPage.Resources>
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <HorizontalStackLayout
+                    Grid.Row="0"
+                    Spacing="10"
+                    Padding="30,0"
+                    VerticalOptions="Start" HorizontalOptions="Center">
+                <Button
+                x:Name="RewindBtn"
+                Text="⏪"
+                Clicked="RewindBtn_Clicked"
+                VerticalOptions="Center" />
+
+                <Button
+                x:Name="PlayBtn"
+                Text="⏸"
+                Clicked="PlayBtn_Clicked"
+                VerticalOptions="Center" />
+
+                <Button
+                x:Name="FfBtn"
+                Text="⏩"
+                Clicked="FfBtn_Clicked"
+                VerticalOptions="Center" />
+
+            </HorizontalStackLayout>
+            <GraphicsView x:Name="PlanetsImg" Grid.Row="1" Drawable="{StaticResource drawable}">
+                <GraphicsView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
+                          NumberOfTapsRequired="1" />
+                </GraphicsView.GestureRecognizers>
+
+            </GraphicsView>
+        </Grid>
+    </ScrollView>
+</ContentPage>
